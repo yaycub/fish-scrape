@@ -1,26 +1,26 @@
 const Fish = require('../lib/models/Fish');
 
-const makeTime = (timeString) => {
-  const keyArray = timeString.replace(/\s+/g, '').split('-');
-  const timeIndex = {
-    '4AM': 4,
-    '9AM': 9,
-    '4PM': 16,
-    '9PM': 21
-  };
+// const makeTime = (timeString) => {
+//   const keyArray = timeString.replace(/\s+/g, '').split('-');
+//   const timeIndex = {
+//     '4AM': 4,
+//     '9AM': 9,
+//     '4PM': 16,
+//     '9PM': 21
+//   };
 
-  if(timeString === 'All day') {
-    return {
-      start: 0,
-      end: 24
-    };
-  } else {
-    return {
-      start: timeIndex[keyArray[0]],
-      end: timeIndex[keyArray[1]]
-    };
-  }
-};
+//   if(timeString === 'All day') {
+//     return {
+//       start: 0,
+//       end: 24
+//     };
+//   } else {
+//     return {
+//       start: timeIndex[keyArray[0]],
+//       end: timeIndex[keyArray[1]]
+//     };
+//   }
+// };
 
 const makeMonth = (monthString) => {
   const months = {
@@ -42,7 +42,7 @@ const makeMonth = (monthString) => {
   return months[monthString];
 };
 
-function makeFish(arr, name, seasonArr, location, rawTime, price) {
+function makeFish(arr, name, seasonArr, location, time, price) {
   if(seasonArr.length === 3){
     const tableRow = {
       name,
@@ -51,7 +51,7 @@ function makeFish(arr, name, seasonArr, location, rawTime, price) {
         end: makeMonth(seasonArr[2])
       },
       location,
-      time: makeTime(rawTime), 
+      time, 
       price
     };
 
@@ -66,7 +66,7 @@ function makeFish(arr, name, seasonArr, location, rawTime, price) {
         end: 12
       },
       location,
-      time: makeTime(rawTime), 
+      time, 
       price
     };
 
@@ -81,7 +81,7 @@ function makeFish(arr, name, seasonArr, location, rawTime, price) {
         end: 9
       },
       location,
-      time: makeTime(rawTime), 
+      time, 
       price
     };
 
@@ -95,7 +95,7 @@ function makeFish(arr, name, seasonArr, location, rawTime, price) {
         end: makeMonth(seasonArr[2])
       },
       location,
-      time: makeTime(rawTime), 
+      time, 
       price
     };
 
@@ -106,7 +106,7 @@ function makeFish(arr, name, seasonArr, location, rawTime, price) {
         end: makeMonth(seasonArr[5])
       },
       location,
-      time: makeTime(rawTime), 
+      time, 
       price
     };
 
